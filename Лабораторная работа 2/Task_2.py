@@ -38,7 +38,7 @@ class Library:
     def get_next_book_id(self):
         if not self.books:
             return 1
-        return self.books[-1].id + 1
+        return max(book.id for book in self.books) + 1
 
     def get_index_by_book_id(self, book_id):
         for i, book in enumerate(self.books):
